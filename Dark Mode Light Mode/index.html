@@ -1,45 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" 
-          content="width=device-width, 
-                   initial-scale=1.0" />
-    <title>
-          How to Make Dark Mode for Websites using HTML CSS & JavaScript  ?
-      </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode Toggle Example</title>
     <style>
         body {
-            padding: 25px;
-            background-color: white;
-            color: black;
-            font-size: 25px;
+            margin: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
         }
 
-        .dark-mode {
-            background-color: black;
+        .dark-theme {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .dark-mode-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
             color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .dark-mode-button:hover {
+            background-color: #0056b3;
+        }
+
+        .image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            margin: 20px auto;
         }
     </style>
 </head>
 
 <body>
-    <h1>GeeksForGeeks</h1>
-    <h2>Dark Mode tutorial using HTML, CSS and JS</h2>
+    <div class="container">
+        <h1>Dark Mode - Light Mode</h1>
+        <h2>Toggle between Light and Dark Mode using the 'Switch Mode' button.</h2>
 
-    <p>GeeksForGeeks Sample Text</p>
+        <p>This is a demonstration of how to implement dark mode using HTML.</p>
 
-    <img src=
-"https://media.geeksforgeeks.org/wp-content/uploads/20200122115631/GeeksforGeeks210.png" />
-    <div>
-        <button onclick="darkMode()">Darkmode</button>
+        <img src="https://i.pinimg.com/564x/83/bc/fd/83bcfdc0dacd9adc9d42028806231cee.jpg" alt="Example Image"
+            class="image" />
+
+        <div>
+            <button class="dark-mode-button" onclick="toggleDarkMode()">Switch Mode</button>
+        </div>
     </div>
+
     <script>
-        function darkMode() {
-            var element = document.body;
-            element.classList.toggle("dark-mode");
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-theme");
         }
     </script>
 </body>
+
 </html>
