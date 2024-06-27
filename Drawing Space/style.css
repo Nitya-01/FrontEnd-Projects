@@ -3,11 +3,9 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #e3dede;
+    background-color: #f3f3f3;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 .container {
@@ -17,14 +15,16 @@ body {
     max-width: 1050px;
     width: 100%;
     border-radius: 20px;
+    overflow: hidden; /* Ensure rounded corners on overflow */
 }
 
 .tools-board {
     width: 210px;
-    height: 590px;
+    height: 100%;
     border-radius: 20px;
-    background-color: #f8f7f6;
+    background-color: #fff;
     padding: 15px 22px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tools-board .row {
@@ -43,34 +43,14 @@ body {
     margin-bottom: 10px;
 }
 
-.option:is(:hover, .active) img {
-    filter: grayscale(20%);
+.option:hover i {
+    color: #f06292;
 }
 
-.option :where(span, label) {
-    color: black;
+.option span {
+    color: #333;
     cursor: pointer;
     padding-left: 10px;
-}
-
-.option:is(:hover, .active) :where(span, label) {
-    color: #f4130b;
-}
-
-.option #fill-color {
-    height: 14px;
-    cursor: pointer;
-    width: 14px;
-}
-
-#fill-color:checked~label {
-    color: #e93e2b;
-}
-
-.option #size-slider {
-    width: 100%;
-    height: 5px;
-    margin-top: 10px;
 }
 
 .colors .options {
@@ -81,92 +61,49 @@ body {
 .colors .option {
     height: 20px;
     width: 20px;
-    border-radius: 30%;
+    border-radius: 50%;
     margin-top: 3px;
     position: relative;
-}
-
-.colors .option:nth-child(1) {
-    background-color: #fff;
-    border: 1px solid #bfbfbf;
-}
-
-.colors .option:nth-child(2) {
-    background-color: black;
-}
-
-.colors .option:nth-child(3) {
-    background-color: #ef4415;
-}
-
-.colors .option:nth-child(4) {
-    background-color: green;
-}
-
-.colors .option:nth-child(5) {
-    background-color: #c1f40a;
-}
-
-.colors .option.selected::before {
-    position: absolute;
-    content: "";
-    height: 12px;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    background: inherit;
-    border-radius: inherit;
-    border: 2px solid #fff;
-    transform: translate(-50%, -50%);
-}
-
-.colors .option:first-child.selected::before {
-    border-color: #ccc;
-}
-
-.option #color-picker {
-    opacity: 0;
     cursor: pointer;
+    border: 2px solid #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.colors .option:hover {
+    transform: scale(1.2);
 }
 
 .buttons button {
-    width: 80%;
+    width: 100%;
     color: #fff;
     border: none;
     outline: none;
     font-size: 0.9rem;
-    padding: 3px 0;
+    padding: 10px;
     margin-bottom: 13px;
-    background: none;
+    background: #f06292;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .buttons .clear-canvas {
-    color: black;
-    border: 1px solid #9fc39f;
-    transition: all 0.2s ease;
-    border: 2px solid black;
-    font-size: 13px;
+    background-color: #64b5f6;
 }
 
-.clear-canvas:hover {
-    color: #fff;
-    background: #6c757d;
-}
-
-.buttons .save-img {
-    background: white;
-    color: black;
-    border: 1px solid #6c757d;
+.clear-canvas:hover, .save-img:hover {
+    background-color: #f48fb1;
 }
 
 .drawing-board {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
 }
 
 .drawing-board canvas {
-    width: 100%;
-    height: 590px;
     border-radius: 10px;
+    cursor: crosshair;
 }
